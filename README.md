@@ -1,18 +1,13 @@
-# PlayGround
+# Little Big Sandbox
 
-<!-- omgithub:readme:start -->
-## 🚀 Build, play, and remix with OMGithub
+A small browser-based 3D playground starring Konata and Niko. Open `index.html` in a modern browser (or serve this folder over HTTP); Three.js is loaded from jsDelivr.
 
-**Created using [OMGithub.com](https://go.ondev.store/).**
+## Play
 
-[![OMGithub](https://img.shields.io/badge/OMGithub-Open%20project-orange?style=for-the-badge)](https://go.ondev.store/javenlai1985-alt/PlayGround)
-[![GitHub](https://img.shields.io/badge/GitHub-Source-181717?logo=github&style=for-the-badge)](https://github.com/javenlai1985-alt/PlayGround)
+- **WASD / arrow keys** move, **Space** hop, **Shift** sprint
+- **Mouse drag** look around, **click** pop bubbles
+- **E** grab/drop nearby props, **Q** spawn menu, **Tab** switch character, **Esc** pause
+- On touch screens, use the left stick to move, right stick to look, **POP** to shoot, and **＋** for the spawn menu
+- Use **MAP** to pick a playground and **STYLE** to switch characters or recolor the outfit
 
-- 🎮 [Open the project](https://go.ondev.store/javenlai1985-alt/PlayGround).
-- ✨ [Remix this project](https://go.ondev.store/javenlai1985-alt/PlayGround?remix=1).
-- 💻 [Explore the source](https://github.com/javenlai1985-alt/PlayGround).
-- 🛠️ [Check build runs](https://github.com/javenlai1985-alt/PlayGround/actions).
-- 🐛 [Report an issue](https://github.com/javenlai1985-alt/PlayGround/issues).
-- 👤 [Explore the creator's projects](https://go.ondev.store/javenlai1985-alt).
-- 🌍 [Create with OMGithub](https://go.ondev.store/).
-<!-- omgithub:readme:end -->
+The game is a lightweight single-player prototype. Its characters and props are original low-poly approximations, and its “Bubble Blaster” is a non-violent toy interaction. Online multiplayer, full skeletal clothing, advanced destruction, and production-quality voice/audio are not implemented.

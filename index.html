@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#101626" />
+  <title>Little Big Sandbox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-root">
+    <canvas id="world" aria-label="3D sandbox world"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar glass">
+      <a class="brand" href="#" aria-label="Little Big Sandbox home"><span class="brand-mark">✳</span><span>LITTLE BIG <b>SANDBOX</b></span></a>
+      <div class="world-title"><span class="live-dot"></span><span id="map-label">SUNNY BLOCK</span><i>·</i><span class="subtle">SANDBOX 01</span></div>
+      <div class="top-actions"><button class="icon-btn" id="sound-toggle" title="Toggle sound">♫</button><button class="icon-btn" id="settings-btn" title="Settings">⚙</button><button class="avatar-btn" id="character-switch" title="Switch character"><span id="avatar-icon">K</span><span class="online-dot"></span></button></div>
+    </header>
+
+    <aside class="tool-panel glass">
+      <div class="panel-head"><div><div class="eyebrow">CREATIVE MODE</div><h1>Make a little<br>mayhem<span>.</span></h1></div><button class="collapse-btn" title="Hide panel">⌘</button></div>
+      <div class="tab-row" role="tablist"><button class="tab active" data-tab="build">Build</button><button class="tab" data-tab="people">People</button><button class="tab" data-tab="style">Style</button></div>
+      <section class="tab-content" id="tab-build">
+        <div class="section-label"><span>QUICK SPAWN</span><button class="text-action" id="clear-world">CLEAR</button></div>
+        <div class="spawn-grid">
+          <button class="spawn-card" data-spawn="crate"><span class="spawn-icon crate-icon">▧</span><span>Crate</span><small>PROP</small></button>
+          <button class="spawn-card" data-spawn="barrel"><span class="spawn-icon barrel-icon">◉</span><span>Pop barrel</span><small>BOOM</small></button>
+          <button class="spawn-card" data-spawn="bench"><span class="spawn-icon bench-icon">▤</span><span>Bench</span><small>FURNITURE</small></button>
+          <button class="spawn-card" data-spawn="ball"><span class="spawn-icon ball-icon">●</span><span>Bouncy ball</span><small>PHYSICS</small></button>
+          <button class="spawn-card" data-spawn="wall"><span class="spawn-icon wall-icon">▥</span><span>Wall panel</span><small>BREAKABLE</small></button>
+          <button class="spawn-card" data-spawn="cone"><span class="spawn-icon cone-icon">▲</span><span>Traffic cone</span><small>DECOR</small></button>
+        </div>
+        <div class="section-label inventory-label"><span>YOUR TOOL</span><span class="keycap">1—2</span></div>
+        <div class="tool-select"><button class="tool-option selected" data-tool="blaster"><span class="tool-emoji">✳</span><span><b>Pop blaster</b><small>Foam darts · infinite fun</small></span><span class="tool-key">1</span></button><button class="tool-option" data-tool="grab"><span class="tool-emoji grab-emoji">✥</span><span><b>Gravity glove</b><small>Pick up & toss props</small></span><span class="tool-key">2</span></button></div>
+        <div class="hint-card"><span class="hint-spark">✦</span><p><b>Try something!</b><br>Spawn props and see what happens.</p><span class="hint-arrow">↗</span></div>
+      </section>
+      <section class="tab-content hidden" id="tab-people">
+        <div class="section-label"><span>YOUR NEIGHBORS</span><span class="count-pill" id="npc-count">03</span></div>
+        <div class="neighbor-card"><div class="neighbor-face niko-face">N</div><div><b>Niko</b><small>Curious · likes exploring</small></div><span class="mood">☀</span></div>
+        <div class="neighbor-card"><div class="neighbor-face blue-face">K</div><div><b>Konata</b><small>Chill · always gaming</small></div><span class="mood">♫</span></div>
+        <div class="neighbor-card"><div class="neighbor-face peach-face">M</div><div><b>Mochi</b><small>Friendly · easily startled</small></div><span class="mood">♡</span></div>
+        <button class="wide-button" id="spawn-neighbor"><span>＋</span> Invite a neighbor</button>
+        <div class="section-label interaction-label"><span>INTERACTION</span></div>
+        <div class="tip-line"><span class="keycap">E</span><span>Wave to the closest neighbor</span></div>
+        <div class="tip-line"><span class="keycap">F</span><span>Make a friendly pop</span></div>
+      </section>
+      <section class="tab-content hidden" id="tab-style">
+        <div class="section-label"><span>PLAYING AS</span><button class="text-action" id="style-switch">SWITCH</button></div>
+        <div class="character-pick active" data-character="konata"><span class="pick-art konata-art">K</span><span><b>Konata Izumi</b><small>Blue-haired daydreamer</small></span><span class="checkmark">✓</span></div>
+        <div class="character-pick" data-character="niko"><span class="pick-art niko-art">N</span><span><b>Niko</b><small>The little light-bringer</small></span><span class="checkmark">✓</span></div>
+        <div class="section-label outfit-label"><span>COLOR YOUR LOOK</span></div>
+        <div class="color-row"><span>Outfit accent</span><div class="swatches"><button class="swatch selected" style="--swatch:#397ee8" data-color="#397ee8" aria-label="Blue"></button><button class="swatch" style="--swatch:#e87972" data-color="#e87972" aria-label="Coral"></button><button class="swatch" style="--swatch:#65b99c" data-color="#65b99c" aria-label="Mint"></button><button class="swatch" style="--swatch:#a27fe8" data-color="#a27fe8" aria-label="Lilac"></button><input id="custom-color" type="color" value="#397ee8" title="Custom outfit color"></div></div>
+        <div class="color-row"><span>Hair tint</span><div class="swatches hair-swatches"><button class="swatch selected" style="--swatch:#4385de" data-hair="#4385de" aria-label="Blue hair"></button><button class="swatch" style="--swatch:#45364b" data-hair="#45364b" aria-label="Dark hair"></button><button class="swatch" style="--swatch:#d3a56e" data-hair="#d3a56e" aria-label="Blonde hair"></button><button class="swatch" style="--swatch:#c77891" data-hair="#c77891" aria-label="Pink hair"></button></div></div>
+        <div class="style-note">Colors update your character in real time. Your look is saved for this session.</div>
+      </section>
+      <footer class="panel-footer"><span><i class="status-pulse"></i> WORLD SIMULATION LIVE</span><span id="prop-count">06 PROPS</span></footer>
+    </aside>
+
+    <div class="right-stack"><div class="objective-card glass"><span class="objective-icon">✧</span><div><small>YOUR LITTLE GOAL</small><b id="goal-text">Make the block yours</b></div><button id="goal-next" title="Next goal">↗</button></div><div class="minimap glass"><div class="map-grid"></div><span class="map-player">✦</span><span class="map-npc npc-a">•</span><span class="map-npc npc-b">•</span><span class="map-npc npc-c">•</span><span class="map-label">YOU ARE HERE</span></div></div>
+
+    <div class="bottom-hud"><div class="character-status glass"><div class="status-portrait" id="status-portrait">K</div><div class="status-name"><span>PLAYING AS</span><b id="player-name">Konata</b></div><div class="status-divider"></div><div class="energy-wrap"><span>GOOD VIBES</span><div class="energy-bar"><i></i></div></div><button class="switch-small" id="switch-small" title="Switch character">⇄</button></div><div class="controls-hint glass"><span class="keycap">W</span><span class="keycap">A</span><span class="keycap">S</span><span class="keycap">D</span><small>move</small><span class="hint-divider"></span><span class="keycap wide">⇧</span><small>run</small><span class="keycap wide">SPACE</span><small>jump</small></div><div class="world-clock glass"><span class="weather-icon">☀</span><span>10:24 <small>AM</small></span><span class="clock-divider"></span><span class="world-day">A VERY NICE DAY</span></div></div>
+    <div id="toast" class="toast glass"></div>
+    <div id="crosshair" class="crosshair"><i></i><i></i></div>
+    <div class="mobile-controls"><div class="joy" id="joystick"><span></span></div><button id="mobile-jump">↑</button><button id="mobile-use">✧</button></div>
+    <div class="modal-backdrop hidden" id="settings-modal"><div class="settings-card glass"><button class="modal-close" id="settings-close">×</button><span class="eyebrow">YOUR PLAYGROUND</span><h2>Make yourself at home.</h2><p>Choose how your little world feels.</p><label class="setting-row"><span>Cozy ambience</span><input id="ambience-toggle" type="checkbox" checked><i></i></label><label class="setting-row"><span>Show mobile controls</span><input id="mobile-toggle" type="checkbox"><i></i></label><label class="setting-row"><span>Camera sensitivity</span><input id="sensitivity" type="range" min="2" max="10" value="5"></label><button class="wide-button done-button" id="settings-done">All good</button></div></div>
+    <div class="toastline" id="toastline">✨ Welcome to the block! Make yourself at home.</div>
+  </div>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
